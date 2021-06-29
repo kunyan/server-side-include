@@ -1,6 +1,6 @@
 {
   "name": "server-side-include",
-  "version": "0.0.1-alpha",
+  "version": "0.0.1-alpha.1",
   "description": "Express middleware for Server Side Include",
   "main": "./dist/index.js",
   "types": "./@types/index.d.ts",

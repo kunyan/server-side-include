@@ -1,19 +1,22 @@
-import http, { IncomingMessage } from "http";
-import https from "https";
+import http, { IncomingMessage } from 'http';
+import https, { RequestOptions } from 'https';
 
-export const get = (url: string, options?: https.RequestOptions): Promise<string> => {
-  const request = url.startsWith("https:") ? https.request : http.request;
-  const opts = {
-    method: "GET",
+export const get = (
+  url: string,
+  options?: https.RequestOptions
+): Promise<string> => {
+  const request = url.startsWith('https:') ? https.request : http.request;
+  const opts: RequestOptions = {
+    method: 'GET',
     ...options,
   };
   return new Promise((resolve, reject) => {
     const req = request(url, opts, (res: IncomingMessage) => {
-      let rawData = "";
+      let rawData = '';
 
-      res.on("data", (chunk) => (rawData += chunk));
+      res.on('data', (chunk) => (rawData += chunk));
 
-      res.on("end", () => {
+      res.on('end', () => {
         try {
           if (res.statusCode && res.statusCode >= 200 && res.statusCode < 300) {
             resolve(rawData);
@@ -25,7 +28,7 @@ export const get = (url: string, options?: https.RequestOptions): Promise<string
         }
       });
 
-      res.on("error", (error) => {
+      res.on('error', (error) => {
         reject(error);
       });
     });

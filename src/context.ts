@@ -6,10 +6,10 @@ const getContext = (): IContext => ({
     DATE_LOCAL: new Date().toString(),
   },
   configs: {
-    echomsg: "ssss",
-    errmsg: "ssss",
-    sizefmt: "ssss",
-    timefmt: "ssss",
+    echomsg: "SSI render echo error",
+    errmsg: "SSI render error",
+    sizefmt: "",
+    timefmt: "",
   },
 });
 

@@ -1,5 +1,5 @@
-import { IContext } from "../models/context";
-import { ssiTagParser } from "../utils/tagParser";
+import { IContext } from '../models/context';
+import { ssiTagParser } from '../utils/tagParser';
 
 const regex = /<!--#config\s(.*)-->/gi;
 export const render = (context: IContext, html: string): void => {
@@ -7,8 +7,8 @@ export const render = (context: IContext, html: string): void => {
   if (setTags) {
     setTags.map((setTag) => {
       const tag = ssiTagParser(setTag);
-      const name = tag.attributes["var"];
-      let value = tag.attributes["value"];
+      const name = tag.attributes['var'];
+      let value = tag.attributes['value'];
       Object.keys(context.variable).forEach((key) => {
         value = value.replace(key, context.variable[key]);
       });

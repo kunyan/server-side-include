@@ -1,7 +1,7 @@
-import { ssiTagParser } from "../utils/tagParser";
-import { get } from "../utils/fetch";
-import { IOptions } from "../models/option";
-import { IContext } from "../models/context";
+import { ssiTagParser } from '../utils/tagParser';
+import { get } from '../utils/fetch';
+import { IOptions } from '../models/option';
+import { IContext } from '../models/context';
 
 const regex = /<!--#include\s(.*)-->/gi;
 
@@ -17,13 +17,13 @@ export const render = async (
       const responses = await Promise.all(
         includeTags.map((includeTag) => {
           const tag = ssiTagParser(includeTag);
-          let url = tag.attributes["virtual"];
+          let url = tag.attributes['virtual'];
           Object.keys(context.variable).forEach((key) => {
             url = url.replace(key, context.variable[key]);
           });
 
           return get(options.host + url, {
-            rejectUnauthorized: options.rejectUnauthorized
+            rejectUnauthorized: options.rejectUnauthorized,
           }).catch((err) => console.error(err));
         })
       );
