@@ -21,7 +21,7 @@
   "author": "Kun Yan <kyan@redhat.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/chai": "4.2.19",
+    "@types/chai": "4.2.20",
     "@types/express": "4.17.12",
     "@types/mocha": "8.2.2",
     "@types/node": "16.0.0",
