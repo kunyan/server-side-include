@@ -77,4 +77,6 @@ export const serverSideInclude = (
   };
 };
 
+export default serverSideInclude;
+
 module.exports = serverSideInclude;
