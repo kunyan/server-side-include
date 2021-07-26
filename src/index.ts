@@ -40,8 +40,6 @@ export const serverSideInclude = (
 
       const type = res.getHeader('Content-Type') || '';
 
-      chunks.push(chunk);
-
       let html = chunks.toString();
 
       if (!(type as string).match(/^text\/html/)) {
