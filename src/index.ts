@@ -11,11 +11,12 @@ export const serverSideInclude = (
   }
 ): RequestHandler => {
   return (req: Request, res: Response, next: NextFunction) => {
-    const ended = false;
+    let ended = false;
     const _end = res.end;
     const _write = res.write;
-    const chunks: Uint8Array[] = [];
+    const chunks: Buffer[] = [];
     const host = `${req.protocol}://${req.get('host')}`;
+    let finalBuffer;
 
     const addBuffer = (chunk: Buffer, encoding?: BufferEncoding): void => {
       if (chunk === undefined) return;
@@ -33,7 +34,7 @@ export const serverSideInclude = (
       return true;
     };
 
-    res.end = (async (chunk: Buffer): Promise<void> => {
+    res.end = (async (chunk: any, encoding: BufferEncoding) => {
       if (ended) {
         return;
       }
@@ -41,40 +42,32 @@ export const serverSideInclude = (
       const type = res.getHeader('Content-Type') || '';
 
       if (chunk) {
-        chunks.push(chunk);
+        addBuffer(chunk);
       }
 
-      let html = chunks.toString();
+      finalBuffer = Buffer.concat(chunks);
+      if (/^text\/html/.test(type as string)) {
+        let content = chunks.toString();
+        const context = getContext();
+        setCommand.render(context, content);
+        content = echoCommand.render(context, content);
 
-      if (!(type as string).match(/^text\/html/)) {
-        res.end = _end;
-        res.write = _write;
-        res.write(html);
-        res.end();
-        return;
-      }
+        if (!options.host) {
+          options.host = host;
+        }
+        if (options.getHost) {
+          options.host = options.getHost(req);
+        }
 
-      const context = getContext();
-      setCommand.render(context, html);
-      html = echoCommand.render(context, html);
-
-      if (!options.host) {
-        options.host = host;
+        content = await includeCommand.render(context, content, options);
+        finalBuffer = Buffer.from(content, encoding);
       }
-      if (options.getHost) {
-        options.host = options.getHost(req);
-      }
-
-      html = await includeCommand.render(context, html, options);
-      const result = Buffer.from(html, 'utf-8');
-      if (res.getHeader('Content-Length')) {
-        res.setHeader('Content-Length', String(result.length));
-      }
+      ended = true;
       res.end = _end;
       res.write = _write;
-      res.write(result);
+      res.write(finalBuffer);
       res.end();
-    }) as (chunk: unknown) => void;
+    }) as any;
     next();
   };
 };
