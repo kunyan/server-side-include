@@ -61,8 +61,12 @@ export const serverSideInclude = (
 
         content = await includeCommand.render(context, content, options);
         finalBuffer = Buffer.from(content, encoding);
+
+        console.log(finalBuffer.toString());
       }
-      ended = true;
+      if (res.getHeader('Content-Length')) {
+        res.setHeader('Content-Length', String(finalBuffer.length));
+      }
       res.end = _end;
       res.write = _write;
       res.write(finalBuffer);

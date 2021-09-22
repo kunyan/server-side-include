@@ -3,18 +3,20 @@
   <head>
     <!-- SPA_HEAD -->
     <!--#include virtual="/_include_/init.html" -->
-    <!--#include virtual="/services/chrome/head/$locale?legacy=false" -->
+    <!--#include virtual="/services/chrome/head/en?legacy=false" -->
   </head>
   <body>
     <!-- SPA_HEADER -->
-    <!--#include virtual="/services/chrome/header/$locale?legacy=false" -->
+    <!--#include virtual="/services/chrome/header/en?legacy=false" -->
     <div class="container">
       <div id="chrometwo">
-        <div id="root">Hello world <img src="./browser.png" alt="test-image" /></div>
+        <div id="root">
+          Hello world <img src="./browser.png" alt="test-image" />
+        </div>
         <!--#echo var="DATE_LOCAL" -->
       </div>
     </div>
     <!-- SPA_FOOTER -->
-    <!--#include virtual="/services/chrome/footer/$locale?legacy=false" -->
+    <!--#include virtual="/services/chrome/footer/en?legacy=false" -->
   </body>
 </html>
