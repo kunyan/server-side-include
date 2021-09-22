@@ -67,6 +67,7 @@ export const serverSideInclude = (
       if (res.getHeader('Content-Length')) {
         res.setHeader('Content-Length', String(finalBuffer.length));
       }
+      ended = true;
       res.end = _end;
       res.write = _write;
       res.write(finalBuffer);
