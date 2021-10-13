@@ -18,7 +18,7 @@
     "build": "tsc --build tsconfig.production.json",
     "pretest": "npm run lint",
     "test": "nyc mocha",
-    "lint": "eslint src --ext .ts",
+    "lint": "eslint --ext .ts .",
     "clean": "rimraf ./dist ./@types"
   },
   "keywords": [],
@@ -34,6 +34,7 @@
     "chai": "4.3.4",
     "eslint": "8.0.0",
     "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
     "express": "4.17.1",
     "http-proxy-middleware": "2.0.1",
     "https-proxy-agent": "5.0.0",
