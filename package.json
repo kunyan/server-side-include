@@ -7,10 +7,9 @@
     "Apache",
     "Nginx"
   ],
-  "homepage": "https://access.redhat.com/ideas-hub",
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.cee.redhat.com/ideas-hub/ideas-hub.git"
+    "url": "https://github.com/kunyan/server-side-include"
   },
   "description": "",
   "engines": {
