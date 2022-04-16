@@ -1,58 +1,44 @@
 # Server Side Include
 
 [![Build Status](https://github.com/kunyan/server-side-include/workflows/Build/badge.svg)](https://github.com/kunyan/server-side-include/actions)
-[![codecov](https://codecov.io/gh/kunyan/server-side-include/branch/main/graph/badge.svg?token=KFDF83NVCR)](https://codecov.io/gh/kunyan/server-side-include)
-[![npm version](https://img.shields.io/npm/v/server-side-include)](https://www.npmjs.com/package/server-side-include)
+[![NPM (scoped)](https://img.shields.io/npm/v/@server-side-include/core?label=npm%20%7C%20core)](https://www.npmjs.com/package/@server-side-include/core)
+[![NPM (scoped)](https://img.shields.io/npm/v/@server-side-include/express-middleware?label=npm%20%7C%20express-middleware)](https://www.npmjs.com/package/@server-side-include/express-middleware)
+[![NPM (scoped)](https://img.shields.io/npm/v/@server-side-include/vite-plugin?label=npm%20%7C%20vite-plugin)](https://www.npmjs.com/package/@server-side-include/vite-plugin)
 
-The express middleware to help node server to render SSI tags
+## Concept
 
-### Usage
+Implement [Server Side Includes](https://httpd.apache.org/docs/current/howto/ssi.htm) with Node.js
+
+## Integration
+
+### Express
 
 ```js
-const express = require('express');
-const serverSideInclude = 'server-side-include';
+import { serverSideInclude } from '@server-side-include/express-middleware';
+import express from 'express';
 
-const app = express();
 app.use(serverSideInclude());
 
 app.use(express.static('public'));
 
-app.listen(3000, () => {
-  console.log(`server is running`);
-});
+app.listen(3000);
 ```
 
-### Work with `http-proxy-middleware`
+### Vite
 
 ```js
-const express = require('express');
-const { createProxyMiddleware } = require('http-proxy-middleware');
-const createHttpsProxyAgent = require('https-proxy-agent');
-const serverSideInclude = 'server-side-include';
+import { SSIPlugin } from '@server-side-include/vite-plugin';
+import path from 'path';
+import { defineConfig } from 'vite';
 
-const proxyServer =
-  process.env.http_proxy ||
-  process.env.https_proxy ||
-  process.env.HTTP_PROXY ||
-  process.env.HTTPS_PROXY ||
-  '';
-
-const app = express();
-
-const reverseProxy = createProxyMiddleware({
-  target: 'https://access.redhat.com',
-  changeOrigin: true,
-  agent: createHttpsProxyAgent(proxyServer),
-});
-
-app.use('/services', reverseProxy);
-app.use('/webassets', reverseProxy);
-
-app.use(serverSideInclude());
-app.use(express.static('public'));
-
-app.listen(3000, () => {
-  console.log(`server is running`);
+export default defineConfig({
+  plugins: [
+    SSIPlugin({
+      host: 'https://access.redhat.com',
+      rejectUnauthorized: true,
+      templatePath: path.resolve(__dirname, 'index.html'),
+    }),
+  ],
 });
 ```
 
