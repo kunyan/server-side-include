@@ -1,10 +1,9 @@
-import http, { IncomingMessage } from 'http';
-import https, { RequestOptions } from 'https';
+import type { IncomingMessage } from 'http';
+import * as http from 'http';
+import type { RequestOptions } from 'https';
+import * as https from 'https';
 
-export const get = (
-  url: string,
-  options?: https.RequestOptions
-): Promise<string> => {
+export const get = (url: string, options?: RequestOptions): Promise<string> => {
   const request = url.startsWith('https:') ? https.request : http.request;
   const opts: RequestOptions = {
     method: 'GET',

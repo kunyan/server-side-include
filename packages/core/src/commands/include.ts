@@ -1,14 +1,18 @@
-import { ssiTagParser } from '../utils/tagParser';
-import { get } from '../utils/fetch';
-import { IOptions } from '../models/option';
 import { IContext } from '../models/context';
+import { get } from '../utils/fetch';
+import { ssiTagParser } from '../utils/tagParser';
+
+export interface IncludeOption {
+  host: string;
+  rejectUnauthorized: boolean;
+}
 
 const regex = /<!--#include\s(.*)-->/gi;
 
-export const render = async (
+export const includeRender = async (
   context: IContext,
   html: string,
-  options: IOptions
+  { host, rejectUnauthorized = false }: IncludeOption
 ): Promise<string> => {
   let finalHTML = html;
   const includeTags = html.match(regex);
@@ -22,8 +26,8 @@ export const render = async (
             url = url.replace(key, context.variable[key]);
           });
 
-          return get(options.host + url, {
-            rejectUnauthorized: options.rejectUnauthorized,
+          return get(host + url, {
+            rejectUnauthorized,
           }).catch((err) => console.error(err));
         })
       );
@@ -43,3 +47,5 @@ export const render = async (
   }
   return finalHTML;
 };
+
+export default includeRender;

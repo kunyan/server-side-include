@@ -2,7 +2,7 @@ import { IContext } from '../models/context';
 import { ssiTagParser } from '../utils/tagParser';
 
 const regex = /<!--#echo\s(.*)-->/gi;
-export const render = (context: IContext, html: string): string => {
+export const echoRender = (context: IContext, html: string): string => {
   let finalHTML = html;
   const echoTags = html.match(regex);
   if (echoTags) {
@@ -17,3 +17,5 @@ export const render = (context: IContext, html: string): string => {
   }
   return finalHTML;
 };
+
+export default echoRender;

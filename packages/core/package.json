@@ -1,0 +1,26 @@
+{
+  "name": "@server-side-include/core",
+  "version": "1.0.0",
+  "description": "Server Side Include core",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kunyan/server-side-include"
+  },
+  "keywords": [],
+  "author": "Kun Yan <kyan@redhat.com>",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "npm run clean",
+    "build": "npm run build:esm & npm run build:cjs",
+    "build:esm": "../../node_modules/.bin/esbuild src/index.ts --bundle --platform=node --format=esm --outfile=dist/esm/index.js",
+    "build:cjs": "../../node_modules/.bin/esbuild src/index.ts --bundle --platform=node --format=cjs --outfile=dist/cjs/index.js",
+    "postbuild": "../../node_modules/.bin/tsc --declaration --emitDeclarationOnly --outDir dist/types",
+    "clean": "rimraf dist"
+  }
+}
