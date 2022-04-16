@@ -19,7 +19,7 @@
     "darwin",
     "linux"
   ],
-  "packageManager": "pnpm@6.32.6",
+  "packageManager": "pnpm@6.32.8",
   "scripts": {
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm",
