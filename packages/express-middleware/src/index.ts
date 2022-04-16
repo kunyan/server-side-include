@@ -1,12 +1,22 @@
-import { Request, Response, NextFunction, RequestHandler } from 'express';
-import { IOptions } from './models/option';
-import getContext from './context';
-import * as setCommand from './commands/set';
-import * as echoCommand from './commands/echo';
-import * as includeCommand from './commands/include';
+import {
+  echoRender,
+  getContext,
+  includeRender,
+  setRender,
+} from '@server-side-include/core';
+import { NextFunction, Request, RequestHandler, Response } from 'express';
+import { Agent } from 'http';
+
+export interface Options {
+  host: string;
+  rejectUnauthorized: boolean;
+  agent?: Agent;
+  getHost?: (req: Request) => string;
+}
 
 export const serverSideInclude = (
-  options: IOptions = {
+  options: Options = {
+    host: '',
     rejectUnauthorized: true,
   }
 ): RequestHandler => {
@@ -34,6 +44,7 @@ export const serverSideInclude = (
       return true;
     };
 
+    // eslint-disable-next-line
     res.end = (async (chunk: any, encoding: BufferEncoding) => {
       if (ended) {
         return;
@@ -49,8 +60,8 @@ export const serverSideInclude = (
       if (/^text\/html/.test(type as string)) {
         let content = chunks.toString();
         const context = getContext();
-        setCommand.render(context, content);
-        content = echoCommand.render(context, content);
+        setRender(context, content);
+        content = echoRender(context, content);
 
         if (!options.host) {
           options.host = host;
@@ -59,7 +70,7 @@ export const serverSideInclude = (
           options.host = options.getHost(req);
         }
 
-        content = await includeCommand.render(context, content, options);
+        content = await includeRender(context, content, options);
         finalBuffer = Buffer.from(content, encoding);
       }
       if (res.getHeader('Content-Length')) {
@@ -70,11 +81,10 @@ export const serverSideInclude = (
       res.write = _write;
       res.write(finalBuffer);
       res.end();
+      // eslint-disable-next-line
     }) as any;
     next();
   };
 };
 
 export default serverSideInclude;
-
-module.exports = serverSideInclude;

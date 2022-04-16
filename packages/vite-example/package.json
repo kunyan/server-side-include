@@ -1,0 +1,13 @@
+{
+  "name": "@server-side-include/vite-example",
+  "private": "true",
+  "license": "MIT",
+  "scripts": {
+    "start": "vite"
+  },
+  "devDependencies": {
+    "@server-side-include/vite-plugin": "workspace:*",
+    "typescript": "^4.6.3",
+    "vite": "^2.9.5"
+  }
+}

@@ -26,9 +26,3 @@ export const ssiTagParser = (text: string): ITag => {
   });
   return tag;
 };
-
-// const testString =
-//   '  <!--#include virtual="https://access.redhat.com/services/chrome/head/$locale?legacy=false" -->';
-// const newTag = ssiTagParser(testString);
-
-// console.log(newTag);

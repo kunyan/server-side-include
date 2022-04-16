@@ -1,6 +1,18 @@
-import { IContext } from './models/context';
+export interface Context {
+  variable: {
+    [key: string]: string;
+  };
+  configs: Configs;
+}
 
-const getContext = (): IContext => ({
+export interface Configs {
+  echomsg: string;
+  errmsg: string;
+  sizefmt: string;
+  timefmt: string;
+}
+
+export const getContext = (): Context => ({
   variable: {
     DATE_GMT: new Date().toISOString(),
     DATE_LOCAL: new Date().toString(),

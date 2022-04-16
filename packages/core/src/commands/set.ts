@@ -1,8 +1,8 @@
 import { IContext } from '../models/context';
 import { ssiTagParser } from '../utils/tagParser';
 
-const regex = /<!--#config\s(.*)-->/gi;
-export const render = (context: IContext, html: string): void => {
+const regex = /<!--#set\s(.*)-->/gi;
+export const setRender = (context: IContext, html: string): void => {
   const setTags = html.match(regex);
   if (setTags) {
     setTags.map((setTag) => {
@@ -16,3 +16,5 @@ export const render = (context: IContext, html: string): void => {
     });
   }
 };
+
+export default setRender;
