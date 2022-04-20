@@ -44,13 +44,13 @@ importers:
       '@server-side-include/express-middleware': workspace:*
       '@types/express': 4.17.13
       express: 4.17.3
-      http-proxy-middleware: 2.0.5
+      http-proxy-middleware: 2.0.6
       ts-node: 10.7.0
     devDependencies:
       '@server-side-include/express-middleware': link:../express-middleware
       '@types/express': registry.npmmirror.com/@types/express/4.17.13
       express: registry.npmmirror.com/express/4.17.3
-      http-proxy-middleware: 2.0.5_@types+express@4.17.13
+      http-proxy-middleware: 2.0.6_@types+express@4.17.13
       ts-node: registry.npmmirror.com/ts-node/10.7.0_17a82b5ac88a5de7094eac76b4edda13
 
   packages/express-middleware:
@@ -571,8 +571,8 @@ packages:
       slash: 3.0.0
     dev: true
 
-  /http-proxy-middleware/2.0.5_@types+express@4.17.13:
-    resolution: {integrity: sha512-ORErEaxkjyrhifofwCuQttHPUSestLtiPDwV0qQOFB0ww6695H953wIGRnkakw1K+GAP+t8/RPbfDB75RFL4Fg==}
+  /http-proxy-middleware/2.0.6_@types+express@4.17.13:
+    resolution: {integrity: sha512-ya/UeJ6HVBYxrgYotAZo1KvPWlgB48kUJLDePFeneHsVujFaW5WNj2NgWCAE//B1Dl02BIfYlpNgBy8Kf8Rjmw==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@types/express': ^4.17.13
