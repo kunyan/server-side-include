@@ -13,7 +13,7 @@ importers:
       eslint-plugin-prettier: 4.0.0
       eslint-plugin-simple-import-sort: 7.0.0
       husky: 7.0.4
-      lint-staged: 12.4.0
+      lint-staged: 12.4.1
       prettier: 2.6.2
       rimraf: 3.0.2
       ts-node: 10.7.0
@@ -29,7 +29,7 @@ importers:
       eslint-plugin-prettier: registry.npmmirror.com/eslint-plugin-prettier/4.0.0_665eb419c9d7860ca0c224f7f6dcdace
       eslint-plugin-simple-import-sort: registry.npmmirror.com/eslint-plugin-simple-import-sort/7.0.0_eslint@8.14.0
       husky: registry.npmmirror.com/husky/7.0.4
-      lint-staged: 12.4.0
+      lint-staged: 12.4.1
       prettier: registry.npmmirror.com/prettier/2.6.2
       rimraf: registry.npmmirror.com/rimraf/3.0.2
       ts-node: registry.npmmirror.com/ts-node/10.7.0_17a82b5ac88a5de7094eac76b4edda13
@@ -1506,8 +1506,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /lint-staged/12.4.0:
-    resolution: {integrity: sha512-3X7MR0h9b7qf4iXf/1n7RlVAx+EzpAZXoCEMhVSpaBlgKDfH2ewf+QUm7BddFyq29v4dgPP+8+uYpWuSWx035A==}
+  /lint-staged/12.4.1:
+    resolution: {integrity: sha512-PTXgzpflrQ+pODQTG116QNB+Q6uUTDg5B5HqGvNhoQSGt8Qy+MA/6zSnR8n38+sxP5TapzeQGTvoKni0KRS8Vg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
