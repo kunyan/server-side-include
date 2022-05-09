@@ -11,8 +11,7 @@
   },
   "env": {
     "browser": true,
-    "node": true,
-    "jest": true
+    "node": true
   },
   "plugins": ["@typescript-eslint", "simple-import-sort", "prettier"],
   "extends": [

@@ -19,14 +19,12 @@
     "darwin",
     "linux"
   ],
-  "packageManager": "pnpm@6.32.12",
+  "packageManager": "pnpm@7.0.1",
   "scripts": {
     "prepare": "husky install",
     "preinstall": "npx only-allow pnpm",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "test": "NODE_OPTIONS='--experimental-vm-modules' jest",
-    "coverage": "NODE_OPTIONS='--experimental-vm-modules' jest --coverage",
     "commit": "cz",
     "clean": "rimraf node_modules **/*/node_modules **/*/dist"
   },
@@ -35,12 +33,11 @@
       "prettier --write"
     ],
     "*.{ts,tsx}": [
-      "pnpm run lint",
-      "pnpm run test"
+      "pnpm run lint"
     ]
   },
   "devDependencies": {
-    "@types/node": "17.0.24",
+    "@types/node": "17.0.31",
     "@typescript-eslint/eslint-plugin": "5.22.0",
     "@typescript-eslint/parser": "5.22.0",
     "esbuild": "0.14.38",
@@ -48,7 +45,7 @@
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-simple-import-sort": "7.0.0",
-    "husky": "8.0.0",
+    "husky": "8.0.1",
     "lint-staged": "12.4.1",
     "prettier": "2.6.2",
     "rimraf": "3.0.2",
