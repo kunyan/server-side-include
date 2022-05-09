@@ -5,6 +5,7 @@ import { ssiTagParser } from '../utils/tagParser';
 export interface IncludeOption {
   host: string;
   rejectUnauthorized: boolean;
+  debug?: boolean;
 }
 
 const regex = /<!--#include\s(.*)-->/gi;
@@ -12,7 +13,7 @@ const regex = /<!--#include\s(.*)-->/gi;
 export const includeRender = async (
   context: IContext,
   html: string,
-  { host, rejectUnauthorized = false }: IncludeOption
+  { host, rejectUnauthorized = false, debug = false }: IncludeOption
 ): Promise<string> => {
   let finalHTML = html;
   const includeTags = html.match(regex);
@@ -26,11 +27,16 @@ export const includeRender = async (
             url = url.replace(key, context.variable[key]);
           });
 
-          return get(host + url, {
+          const fullUrl = host + url;
+
+          if (debug) {
+            console.info('Request to', fullUrl);
+          }
+          return get(fullUrl, {
             rejectUnauthorized,
           }).catch((err) => console.error(err));
         })
-      );
+      ).catch((error) => console.error(error));
       if (responses && Array.isArray(responses)) {
         includeTags.forEach((tag, index) => {
           const response = responses[index];

@@ -5,49 +5,58 @@ import {
   includeRender,
   setRender,
 } from '@server-side-include/core';
-import fs from 'fs';
-import type { Plugin } from 'vite';
+import type { Plugin, ViteDevServer } from 'vite';
 
-interface Options extends IncludeOption {
-  templatePath: string;
+interface Options extends Partial<IncludeOption> {
+  variables?: {
+    [key: string]: string;
+  };
 }
 
-export const SSIPlugin = (options: Options): Plugin => ({
-  name: '@server-side-include/vite-plugin',
-  configureServer(server) {
-    return () => {
-      server.middlewares.use(async (req, res, next) => {
-        const url = req.originalUrl || req.url || '';
+export const SSIPlugin = ({
+  variables,
+  host,
+  rejectUnauthorized,
+}: Options): Plugin => {
+  let server: ViteDevServer;
+  return {
+    name: '@server-side-include/vite-plugin',
+    apply: 'serve',
+    configureServer: (_server) => {
+      server = _server;
+    },
+    transformIndexHtml: async (html: string) => {
+      let draft = html;
+      const context = getContext();
 
-        try {
-          // 1. Read index.html
-          let template = fs.readFileSync(options.templatePath, 'utf-8');
+      if (variables) {
+        context.variable = {
+          ...context.variable,
+          ...variables,
+        };
+      }
 
-          // 2. Apply Vite HTML transforms. This injects the Vite HMR client, and
-          //    also applies HTML transforms from Vite plugins, e.g. global preambles
-          //    from @vitejs/plugin-react
-          template = await server.transformIndexHtml(url, template);
+      setRender(context, draft);
+      draft = echoRender(context, draft);
 
-          const context = getContext();
-          setRender(context, template);
-          template = echoRender(context, template);
+      let defaultHost = server.config.server.https
+        ? 'https://'
+        : 'http://' +
+          (server.config.server.host ? server.config.server.host : 'localhost');
+      if (server.config.server.port) {
+        defaultHost += ':' + server.config.server.port;
+      } else {
+        defaultHost += ':3000';
+      }
 
-          if (!options.host) {
-            options.host = url;
-          }
+      const opts: IncludeOption = {
+        host: host || defaultHost,
+        rejectUnauthorized: !!rejectUnauthorized,
+      };
 
-          template = await includeRender(context, template, options);
-
-          const html = template;
-
-          // 6. Send the rendered HTML back.
-          res.end(html);
-        } catch (e) {
-          next(e);
-        }
-      });
-    };
-  },
-});
+      return await includeRender(context, draft, opts);
+    },
+  };
+};
 
 export default SSIPlugin;

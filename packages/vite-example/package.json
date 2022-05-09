@@ -3,11 +3,12 @@
   "private": "true",
   "license": "MIT",
   "scripts": {
-    "start": "vite"
+    "start": "vite",
+    "build": "vite build"
   },
   "devDependencies": {
     "@server-side-include/vite-plugin": "workspace:*",
-    "typescript": "^4.6.3",
-    "vite": "^2.9.5"
+    "typescript": "4.6.4",
+    "vite": "2.9.8"
   }
 }
