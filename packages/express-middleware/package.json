@@ -24,7 +24,7 @@
     "clean": "rimraf dist"
   },
   "dependencies": {
-    "@server-side-include/core": "1.0.0"
+    "@server-side-include/core": "1.0.2"
   },
   "peerDependencies": {
     "express": "*"
