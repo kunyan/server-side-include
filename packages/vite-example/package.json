@@ -9,6 +9,6 @@
   "devDependencies": {
     "@server-side-include/vite-plugin": "workspace:*",
     "typescript": "4.7.3",
-    "vite": "2.9.9"
+    "vite": "2.9.10"
   }
 }
