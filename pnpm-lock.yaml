@@ -13,7 +13,7 @@ importers:
       eslint-plugin-prettier: 4.0.0
       eslint-plugin-simple-import-sort: 7.0.0
       husky: 8.0.1
-      lint-staged: 13.0.2
+      lint-staged: 13.0.3
       prettier: 2.7.1
       rimraf: 3.0.2
       ts-node: 10.8.1
@@ -29,7 +29,7 @@ importers:
       eslint-plugin-prettier: 4.0.0_xu6ewijrtliw5q5lksq5uixwby
       eslint-plugin-simple-import-sort: 7.0.0_eslint@8.18.0
       husky: 8.0.1
-      lint-staged: 13.0.2
+      lint-staged: 13.0.3
       prettier: 2.7.1
       rimraf: 3.0.2
       ts-node: 10.8.1_6bd4jfip3gnofjnkq5lqqdbk4m
@@ -1900,8 +1900,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /lint-staged/13.0.2:
-    resolution: {integrity: sha512-qQLfLTh9z34eMzfEHENC+QBskZfxjomrf+snF3xJ4BzilORbD989NLqQ00ughsF/A+PT41e87+WsMFabf9++pQ==}
+  /lint-staged/13.0.3:
+    resolution: {integrity: sha512-9hmrwSCFroTSYLjflGI8Uk+GWAwMB4OlpU4bMJEAT5d/llQwtYKoim4bLOyLCuWFAhWEupE0vkIFqtw/WIsPug==}
     engines: {node: ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
