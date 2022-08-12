@@ -70,11 +70,11 @@ importers:
     specifiers:
       '@server-side-include/vite-plugin': workspace:*
       typescript: 4.7.4
-      vite: 2.9.14
+      vite: 2.9.15
     devDependencies:
       '@server-side-include/vite-plugin': link:../vite-plugin
       typescript: 4.7.4
-      vite: 2.9.14
+      vite: 2.9.15
 
   packages/vite-plugin:
     specifiers:
@@ -2687,8 +2687,8 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
-  /vite/2.9.14:
-    resolution: {integrity: sha512-P/UCjSpSMcE54r4mPak55hWAZPlyfS369svib/gpmz8/01L822lMPOJ/RYW6tLCe1RPvMvOsJ17erf55bKp4Hw==}
+  /vite/2.9.15:
+    resolution: {integrity: sha512-fzMt2jK4vQ3yK56te3Kqpkaeq9DkcZfBbzHwYpobasvgYmP2SoAr6Aic05CsB4CzCZbsDv4sujX3pkEGhLabVQ==}
     engines: {node: '>=12.2.0'}
     hasBin: true
     peerDependencies:
