@@ -30,6 +30,6 @@
     "express": "*"
   },
   "devDependencies": {
-    "@types/express": "^4.17.13"
+    "@types/express": "4.17.13"
   }
 }
