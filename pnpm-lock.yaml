@@ -42,7 +42,7 @@ importers:
   packages/express-example:
     specifiers:
       '@server-side-include/express-middleware': workspace:*
-      '@types/express': 4.17.16
+      '@types/express': 4.17.17
       '@types/node': 17.0.31
       express: 4.18.2
       http-proxy-middleware: 2.0.6
@@ -50,21 +50,21 @@ importers:
       typescript: 4.9.5
     devDependencies:
       '@server-side-include/express-middleware': link:../express-middleware
-      '@types/express': 4.17.16
+      '@types/express': 4.17.17
       '@types/node': 17.0.31
       express: 4.18.2
-      http-proxy-middleware: 2.0.6_@types+express@4.17.16
+      http-proxy-middleware: 2.0.6_@types+express@4.17.17
       ts-node: 10.9.1_mexvogqykbbq6jmfbkf4i2paku
       typescript: 4.9.5
 
   packages/express-middleware:
     specifiers:
       '@server-side-include/core': 1.0.2
-      '@types/express': 4.17.16
+      '@types/express': 4.17.17
     dependencies:
       '@server-side-include/core': link:../core
     devDependencies:
-      '@types/express': 4.17.16
+      '@types/express': 4.17.17
 
   packages/vite-example:
     specifiers:
@@ -397,19 +397,19 @@ packages:
       '@types/node': 17.0.31
     dev: true
 
-  /@types/express-serve-static-core/4.17.31:
-    resolution: {integrity: sha512-DxMhY+NAsTwMMFHBTtJFNp5qiHKJ7TeqOo23zVEM9alT1Ml27Q3xcTH0xwxn7Q0BbMcVEJOs/7aQtUWupUQN3Q==}
+  /@types/express-serve-static-core/4.17.33:
+    resolution: {integrity: sha512-TPBqmR/HRYI3eC2E5hmiivIzv+bidAfXofM+sbonAGvyDhySGw9/PQZFt2BLOrjUUR++4eJVpx6KnLQK1Fk9tA==}
     dependencies:
       '@types/node': 17.0.31
       '@types/qs': 6.9.7
       '@types/range-parser': 1.2.4
     dev: true
 
-  /@types/express/4.17.16:
-    resolution: {integrity: sha512-LkKpqRZ7zqXJuvoELakaFYuETHjZkSol8EV6cNnyishutDBCCdv6+dsKPbKkCcIk57qRphOLY5sEgClw1bO3gA==}
+  /@types/express/4.17.17:
+    resolution: {integrity: sha512-Q4FmmuLGBG58btUnfS1c1r/NQdlp3DMfGDGig8WhfpA2YRUtEkxAjkZb0yvplJGYdF1fsQ81iMDcH24sSCNC/Q==}
     dependencies:
       '@types/body-parser': 1.19.2
-      '@types/express-serve-static-core': 4.17.31
+      '@types/express-serve-static-core': 4.17.33
       '@types/qs': 6.9.7
       '@types/serve-static': 1.13.10
     dev: true
@@ -1581,7 +1581,7 @@ packages:
       toidentifier: 1.0.1
     dev: true
 
-  /http-proxy-middleware/2.0.6_@types+express@4.17.16:
+  /http-proxy-middleware/2.0.6_@types+express@4.17.17:
     resolution: {integrity: sha512-ya/UeJ6HVBYxrgYotAZo1KvPWlgB48kUJLDePFeneHsVujFaW5WNj2NgWCAE//B1Dl02BIfYlpNgBy8Kf8Rjmw==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -1590,7 +1590,7 @@ packages:
       '@types/express':
         optional: true
     dependencies:
-      '@types/express': 4.17.16
+      '@types/express': 4.17.17
       '@types/http-proxy': 1.17.9
       http-proxy: 1.18.1
       is-glob: 4.0.3
