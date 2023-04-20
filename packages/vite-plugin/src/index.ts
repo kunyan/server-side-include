@@ -39,9 +39,9 @@ export const SSIPlugin = ({
       setRender(context, draft);
       draft = echoRender(context, draft);
 
-      let defaultHost = server.config.server.https
+      let defaultHost = (server.config.server.https
         ? 'https://'
-        : 'http://' +
+        : 'http://') +
           (server.config.server.host ? server.config.server.host : 'localhost');
       if (server.config.server.port) {
         defaultHost += ':' + server.config.server.port;
