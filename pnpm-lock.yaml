@@ -42,7 +42,7 @@ importers:
   packages/express-example:
     specifiers:
       '@server-side-include/express-middleware': workspace:*
-      '@types/express': 4.17.17
+      '@types/express': 4.17.20
       '@types/node': 17.0.45
       express: 4.18.2
       http-proxy-middleware: 2.0.6
@@ -50,21 +50,21 @@ importers:
       typescript: 4.9.5
     devDependencies:
       '@server-side-include/express-middleware': link:../express-middleware
-      '@types/express': 4.17.17
+      '@types/express': 4.17.20
       '@types/node': 17.0.45
       express: 4.18.2
-      http-proxy-middleware: 2.0.6_@types+express@4.17.17
+      http-proxy-middleware: 2.0.6_@types+express@4.17.20
       ts-node: 10.9.1_cin3sed6ohfsopbmt6orxeb4o4
       typescript: 4.9.5
 
   packages/express-middleware:
     specifiers:
       '@server-side-include/core': 1.0.2
-      '@types/express': 4.17.17
+      '@types/express': 4.17.20
     dependencies:
       '@server-side-include/core': link:../core
     devDependencies:
-      '@types/express': 4.17.17
+      '@types/express': 4.17.20
 
   packages/vite-example:
     specifiers:
@@ -435,8 +435,8 @@ packages:
       '@types/range-parser': 1.2.4
     dev: true
 
-  /@types/express/4.17.17:
-    resolution: {integrity: sha512-Q4FmmuLGBG58btUnfS1c1r/NQdlp3DMfGDGig8WhfpA2YRUtEkxAjkZb0yvplJGYdF1fsQ81iMDcH24sSCNC/Q==}
+  /@types/express/4.17.20:
+    resolution: {integrity: sha512-rOaqlkgEvOW495xErXMsmyX3WKBInbhG5eqojXYi3cGUaLoRDlXa5d52fkfWZT963AZ3v2eZ4MbKE6WpDAGVsw==}
     dependencies:
       '@types/body-parser': 1.19.2
       '@types/express-serve-static-core': 4.17.33
@@ -1604,7 +1604,7 @@ packages:
       toidentifier: 1.0.1
     dev: true
 
-  /http-proxy-middleware/2.0.6_@types+express@4.17.17:
+  /http-proxy-middleware/2.0.6_@types+express@4.17.20:
     resolution: {integrity: sha512-ya/UeJ6HVBYxrgYotAZo1KvPWlgB48kUJLDePFeneHsVujFaW5WNj2NgWCAE//B1Dl02BIfYlpNgBy8Kf8Rjmw==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -1613,7 +1613,7 @@ packages:
       '@types/express':
         optional: true
     dependencies:
-      '@types/express': 4.17.17
+      '@types/express': 4.17.20
       '@types/http-proxy': 1.17.9
       http-proxy: 1.18.1
       is-glob: 4.0.3
