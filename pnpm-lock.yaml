@@ -14,7 +14,7 @@ importers:
       eslint-plugin-simple-import-sort: 7.0.0
       husky: 8.0.3
       lint-staged: 13.3.0
-      prettier: 2.8.8
+      prettier: 3.2.5
       rimraf: 3.0.2
       ts-node: 10.9.2
       tslib: 2.6.2
@@ -26,11 +26,11 @@ importers:
       esbuild: 0.20.0
       eslint: 8.56.0
       eslint-config-prettier: 8.10.0_eslint@8.56.0
-      eslint-plugin-prettier: 4.2.1_cywvuslhzkeaqmqqzfkovv4bsy
+      eslint-plugin-prettier: 4.2.1_6chp2scuy44cu26jtb4ca3nr6q
       eslint-plugin-simple-import-sort: 7.0.0_eslint@8.56.0
       husky: 8.0.3
       lint-staged: 13.3.0
-      prettier: 2.8.8
+      prettier: 3.2.5
       rimraf: 3.0.2
       ts-node: 10.9.2_cin3sed6ohfsopbmt6orxeb4o4
       tslib: 2.6.2
@@ -1177,7 +1177,7 @@ packages:
       eslint: 8.56.0
     dev: true
 
-  /eslint-plugin-prettier/4.2.1_cywvuslhzkeaqmqqzfkovv4bsy:
+  /eslint-plugin-prettier/4.2.1_6chp2scuy44cu26jtb4ca3nr6q:
     resolution: {integrity: sha512-f/0rXLXUt0oFYs8ra4w49wYZBG5GKZpAYsJSm6rnYL5uVDjd+zowwMwVZHnAjf4edNrKpCDYfXDgmRE/Ak7QyQ==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -1190,7 +1190,7 @@ packages:
     dependencies:
       eslint: 8.56.0
       eslint-config-prettier: 8.10.0_eslint@8.56.0
-      prettier: 2.8.8
+      prettier: 3.2.5
       prettier-linter-helpers: 1.0.0
     dev: true
 
@@ -2050,9 +2050,9 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier/2.8.8:
-    resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
-    engines: {node: '>=10.13.0'}
+  /prettier/3.2.5:
+    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
