@@ -42,7 +42,7 @@
     "@typescript-eslint/parser": "5.62.0",
     "esbuild": "0.21.1",
     "eslint": "8.57.0",
-    "eslint-config-prettier": "8.10.0",
+    "eslint-config-prettier": "9.1.0",
     "eslint-plugin-prettier": "4.2.1",
     "eslint-plugin-simple-import-sort": "7.0.0",
     "husky": "8.0.3",
