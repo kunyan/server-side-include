@@ -17,7 +17,7 @@ importers:
       prettier: 2.8.8
       rimraf: 3.0.2
       ts-node: 10.9.2
-      tslib: 2.6.2
+      tslib: 2.8.0
       typescript: 4.9.5
     devDependencies:
       '@types/node': 17.0.45
@@ -33,7 +33,7 @@ importers:
       prettier: 2.8.8
       rimraf: 3.0.2
       ts-node: 10.9.2_cin3sed6ohfsopbmt6orxeb4o4
-      tslib: 2.6.2
+      tslib: 2.8.0
       typescript: 4.9.5
 
   packages/core:
@@ -2357,8 +2357,8 @@ packages:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
 
-  /tslib/2.6.2:
-    resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
+  /tslib/2.8.0:
+    resolution: {integrity: sha512-jWVzBLplnCmoaTr13V9dYbiQ99wvZRd0vNWaDRg+aVYRcjDF3nDksxFDE/+fkXnKhpnUUkmx5pK/v8mCtLVqZA==}
     dev: true
 
   /tsutils/3.21.0_typescript@4.9.5:
