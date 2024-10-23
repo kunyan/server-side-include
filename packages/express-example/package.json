@@ -9,7 +9,7 @@
   "devDependencies": {
     "@server-side-include/express-middleware": "workspace:*",
     "@types/express": "4.17.21",
-    "@types/node": "17.0.45",
+    "@types/node": "20.17.0",
     "express": "4.19.2",
     "http-proxy-middleware": "2.0.6",
     "ts-node": "10.9.2",
